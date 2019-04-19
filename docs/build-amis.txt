@@ -45,3 +45,6 @@ Packer Template Text
 Spinnaker deploy edit json
 --------------------------
       "amiName": "${ #stage( 'Jenkins' )['context']['builds'][ #stage( 'Jenkins' )['context']['builds'].size() -1 ]['artifact_id'].split(':')[1] }",
+
+Use this if using automated trigger:
+      "amiName": "${ trigger['properties']['builds'][ trigger['properties']['builds'].size() -1 ]['artifact_id'].split(':')[1] }"
